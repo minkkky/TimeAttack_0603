@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>drink</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+        <select name="category">
+            {% for category in categories %}
+            <option value="{{ category.name }}">{{ category.name }}</option>
+            {% endfor %}
+        </select>
+    <button type="submit">선택</button>
+</form>
+{% for drink in drinks %}
+    <p>{{ drink.name }}</p>
+{% endfor %}
+</body>
+</html>
